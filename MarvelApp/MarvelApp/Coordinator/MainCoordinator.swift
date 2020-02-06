@@ -16,7 +16,12 @@ class MainCoordinator: Coordinator {
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.navigationController.setNavigationBarHidden(true, animated: false)
+//        self.navigationController.setNavigationBarHidden(true, animated: false)
+        
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationBar.isTranslucent = true
+        navigationController.navigationBar.barStyle = .blackTranslucent
+        navigationController.navigationBar.tintColor = .black
     }
     
     func start() {
