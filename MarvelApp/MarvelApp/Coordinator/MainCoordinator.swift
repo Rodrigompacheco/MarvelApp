@@ -29,8 +29,8 @@ class MainCoordinator: Coordinator {
 
 extension MainCoordinator: CharactersListPresenterCoordinatorDelegate {
     func didSelectCharacter(character: Character) {
-//        let presenter = CharacterDetailViewModel(character: character,
-//                                          marvelApiProvider: marvelApiProvider)
+        let presenter = CharacterDetailPresenter(marvelApiProvider: marvelApiProvider, character: character)
+
 //        let viewController = CharacterDetailViewController(viewModel: viewModel)
 //        navigationController.pushViewController(viewController, animated: true)
         print("VAI IR PRA DEITAIL VIEW CONTROLLER")
