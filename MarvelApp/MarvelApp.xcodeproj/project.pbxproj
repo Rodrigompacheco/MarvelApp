@@ -10,7 +10,6 @@
 		41561FC623EB59AF00AAF8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41561FC523EB59AF00AAF8E7 /* AppDelegate.swift */; };
 		41561FC823EB59AF00AAF8E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41561FC723EB59AF00AAF8E7 /* SceneDelegate.swift */; };
 		41561FCA23EB59AF00AAF8E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41561FC923EB59AF00AAF8E7 /* ViewController.swift */; };
-		41561FCD23EB59AF00AAF8E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41561FCB23EB59AF00AAF8E7 /* Main.storyboard */; };
 		41561FCF23EB59B100AAF8E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41561FCE23EB59B100AAF8E7 /* Assets.xcassets */; };
 		41561FD223EB59B100AAF8E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41561FD023EB59B100AAF8E7 /* LaunchScreen.storyboard */; };
 		41561FDD23EB59B100AAF8E7 /* MarvelAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41561FDC23EB59B100AAF8E7 /* MarvelAppTests.swift */; };
@@ -39,7 +38,6 @@
 		41561FC523EB59AF00AAF8E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41561FC723EB59AF00AAF8E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		41561FC923EB59AF00AAF8E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		41561FCC23EB59AF00AAF8E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		41561FCE23EB59B100AAF8E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41561FD123EB59B100AAF8E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41561FD323EB59B100AAF8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,12 +97,11 @@
 		41561FC423EB59AF00AAF8E7 /* MarvelApp */ = {
 			isa = PBXGroup;
 			children = (
-				41561FC523EB59AF00AAF8E7 /* AppDelegate.swift */,
-				41561FC723EB59AF00AAF8E7 /* SceneDelegate.swift */,
-				41561FC923EB59AF00AAF8E7 /* ViewController.swift */,
-				41561FCB23EB59AF00AAF8E7 /* Main.storyboard */,
-				41561FCE23EB59B100AAF8E7 /* Assets.xcassets */,
-				41561FD023EB59B100AAF8E7 /* LaunchScreen.storyboard */,
+				41561FF923EB8EC600AAF8E7 /* Extensions */,
+				41561FF523EB8E5400AAF8E7 /* Features */,
+				41561FF623EB8E6200AAF8E7 /* Service */,
+				41561FF823EB8EB900AAF8E7 /* Storyboards */,
+				41561FF723EB8EA400AAF8E7 /* SupportingFiles */,
 				41561FD323EB59B100AAF8E7 /* Info.plist */,
 			);
 			path = MarvelApp;
@@ -126,6 +123,46 @@
 				41561FE923EB59B100AAF8E7 /* Info.plist */,
 			);
 			path = MarvelAppUITests;
+			sourceTree = "<group>";
+		};
+		41561FF523EB8E5400AAF8E7 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				41561FC923EB59AF00AAF8E7 /* ViewController.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		41561FF623EB8E6200AAF8E7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		41561FF723EB8EA400AAF8E7 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				41561FC523EB59AF00AAF8E7 /* AppDelegate.swift */,
+				41561FC723EB59AF00AAF8E7 /* SceneDelegate.swift */,
+				41561FCE23EB59B100AAF8E7 /* Assets.xcassets */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		41561FF823EB8EB900AAF8E7 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				41561FD023EB59B100AAF8E7 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		41561FF923EB8EC600AAF8E7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +271,6 @@
 			files = (
 				41561FD223EB59B100AAF8E7 /* LaunchScreen.storyboard in Resources */,
 				41561FCF23EB59B100AAF8E7 /* Assets.xcassets in Resources */,
-				41561FCD23EB59AF00AAF8E7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +333,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		41561FCB23EB59AF00AAF8E7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				41561FCC23EB59AF00AAF8E7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		41561FD023EB59B100AAF8E7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
