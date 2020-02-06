@@ -17,7 +17,7 @@ struct ThumbImage: Codable {
         case `extension`
     }
     
-    func fullPath() -> String {
+    var fullPath: String {
         return "\(path).\(`extension`)"
     }
     
