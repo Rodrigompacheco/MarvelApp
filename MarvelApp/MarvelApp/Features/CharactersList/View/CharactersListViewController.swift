@@ -12,28 +12,21 @@ class CharactersListViewController: UIViewController {
     
     @IBOutlet weak var charactersListCollectionView: UICollectionView!
 
+    var presenter: CharactersListPresenter?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let view: UIView = UIView(frame: self.view.bounds)
-        view.backgroundColor = .red
-        self.view.addSubview(view)
         
-        let endpoint = MarvelApiEndpoint.characters(offset: 5)
-        let marvelApiProvider = MarvelApiProvider()
-        
-        marvelApiProvider.request(for: endpoint) { [weak self] (result: Result<DataPackage<Character>, Error>) in
-            guard let self = self else { return }
-            switch result {
-            case .success(let dataPackage):
-//                let changeState = self.paginator.paginate(dataWrapper: dataWrapper)
-                print("sucesso")
-                print(dataPackage)
-            case .failure(let error):
-                print("falhou")
+        presenter = CharactersListPresenter()
+        presenter?.loadCharacters(completion: { result in
+            if result {
+                self.presenter?.getCharacters().forEach({ (character) in
+                    print("\(character.name)\n")
+                })
             }
-        }
+        })
     }
 }
 

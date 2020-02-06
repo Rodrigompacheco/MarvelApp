@@ -26,6 +26,7 @@
 		41CD152023EBBECE00008951 /* CharactersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41CD151F23EBBECE00008951 /* CharactersListViewController.xib */; };
 		41CD152323EBC21C00008951 /* CharacterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41CD152223EBC21C00008951 /* CharacterCollectionViewCell.xib */; };
 		41CD152723EBC2D100008951 /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD152623EBC2D100008951 /* CharacterCollectionViewCell.swift */; };
+		41CD152923EBC43F00008951 /* CharactersListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD152823EBC43F00008951 /* CharactersListPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		41CD151F23EBBECE00008951 /* CharactersListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharactersListViewController.xib; sourceTree = "<group>"; };
 		41CD152223EBC21C00008951 /* CharacterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterCollectionViewCell.xib; sourceTree = "<group>"; };
 		41CD152623EBC2D100008951 /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
+		41CD152823EBC43F00008951 /* CharactersListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 		41CD151B23EBA67100008951 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				41CD152823EBC43F00008951 /* CharactersListPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				41CD150823EB977600008951 /* String+md5.swift in Sources */,
 				41CD151823EBA20900008951 /* ThumbImage.swift in Sources */,
 				41CD151223EB9F8A00008951 /* Character.swift in Sources */,
+				41CD152923EBC43F00008951 /* CharactersListPresenter.swift in Sources */,
 				41561FCA23EB59AF00AAF8E7 /* CharactersListViewController.swift in Sources */,
 				41561FC623EB59AF00AAF8E7 /* AppDelegate.swift in Sources */,
 				41CD150223EB90BD00008951 /* MarvelApiError.swift in Sources */,

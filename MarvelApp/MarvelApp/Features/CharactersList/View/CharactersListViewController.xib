@@ -7,37 +7,37 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
-        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <viewController id="G3o-gt-i0z" customClass="CharactersListViewController" customModule="MarvelApp" customModuleProvider="target">
-            <view key="view" contentMode="scaleToFill" id="spz-Sa-2wB">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="OEN-70-k9z">
-                        <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9d9-m6-tqk">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                    </collectionView>
-                </subviews>
-                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                <constraints>
-                    <constraint firstItem="OEN-70-k9z" firstAttribute="top" secondItem="yrh-kM-d6S" secondAttribute="top" id="C2O-tB-g0d"/>
-                    <constraint firstItem="OEN-70-k9z" firstAttribute="leading" secondItem="yrh-kM-d6S" secondAttribute="leading" id="CPp-kV-fOQ"/>
-                    <constraint firstItem="yrh-kM-d6S" firstAttribute="bottom" secondItem="OEN-70-k9z" secondAttribute="bottom" id="u3Y-DC-Xk7"/>
-                    <constraint firstItem="yrh-kM-d6S" firstAttribute="trailing" secondItem="OEN-70-k9z" secondAttribute="trailing" id="xWL-2i-85J"/>
-                </constraints>
-                <viewLayoutGuide key="safeArea" id="yrh-kM-d6S"/>
-            </view>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharactersListViewController" customModule="MarvelApp" customModuleProvider="target">
             <connections>
-                <outlet property="charactersListCollectionView" destination="OEN-70-k9z" id="xRL-I2-5FL"/>
+                <outlet property="charactersListCollectionView" destination="OEN-70-k9z" id="AXA-pV-v7z"/>
+                <outlet property="view" destination="spz-Sa-2wB" id="8s9-Il-sz5"/>
             </connections>
-            <point key="canvasLocation" x="149" y="96"/>
-        </viewController>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="spz-Sa-2wB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="OEN-70-k9z">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9d9-m6-tqk">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="OEN-70-k9z" firstAttribute="top" secondItem="yrh-kM-d6S" secondAttribute="top" id="C2O-tB-g0d"/>
+                <constraint firstItem="OEN-70-k9z" firstAttribute="leading" secondItem="yrh-kM-d6S" secondAttribute="leading" id="CPp-kV-fOQ"/>
+                <constraint firstItem="yrh-kM-d6S" firstAttribute="bottom" secondItem="OEN-70-k9z" secondAttribute="bottom" id="u3Y-DC-Xk7"/>
+                <constraint firstItem="yrh-kM-d6S" firstAttribute="trailing" secondItem="OEN-70-k9z" secondAttribute="trailing" id="xWL-2i-85J"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="yrh-kM-d6S"/>
+            <point key="canvasLocation" x="-61" y="743"/>
+        </view>
     </objects>
 </document>
