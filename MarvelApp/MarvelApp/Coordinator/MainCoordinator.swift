@@ -33,8 +33,5 @@ extension MainCoordinator: CharactersListPresenterCoordinatorDelegate {
 
         let viewController = CharacterDetailViewController(presenter: presenter)
         navigationController.pushViewController(viewController, animated: true)
-//        let viewController = CharacterDetailViewController(viewModel: viewModel)
-//        navigationController.pushViewController(viewController, animated: true)
-        print("VAI IR PRA DEITAIL VIEW CONTROLLER")
     }
 }
