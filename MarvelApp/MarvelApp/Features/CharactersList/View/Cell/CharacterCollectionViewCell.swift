@@ -16,8 +16,8 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     func setup(name: String, thumbnailImage: String) {
         characterNameLabel.text = name
         
-//        backgroundImageView.load(thumbnailImage: thumbnailImage)
-        downloadImage(from: URL(string: thumbnailImage)!)
+        backgroundImageView.load(thumbnailImage: thumbnailImage)
+//        downloadImage(from: URL(string: thumbnailImage)!)
         
     }
     
