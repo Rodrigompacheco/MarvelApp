@@ -62,10 +62,12 @@ extension CharactersListPresenter: CharactersListViewControllerDelegate {
     }
     
     func setupView() {
-        loadCharacters(completion: { result in
-            if result {
-                self.delegate?.reloadData()
-            }
-        })
+        DispatchQueue.main.async {
+            self.loadCharacters(completion: { result in
+                if result {
+                    self.delegate?.reloadData()
+                }
+            })
+        }
     }
 }

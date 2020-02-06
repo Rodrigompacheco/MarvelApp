@@ -14,7 +14,11 @@ protocol CharactersListViewControllerDelegate: ViewControllerDelegate {
 
 class CharactersListViewController: UIViewController {
     
-    @IBOutlet weak var charactersListCollectionView: UICollectionView!
+    @IBOutlet weak var charactersListCollectionView: UICollectionView! {
+        didSet {
+            charactersListCollectionView.register(UINib(nibName: CharacterCollectionViewCell.className, bundle: nil), forCellWithReuseIdentifier: CharacterCollectionViewCell.className)
+        }
+    }
 
     var presenter: CharactersListPresenter?
     
@@ -47,6 +51,8 @@ extension CharactersListViewController: UICollectionViewDataSource {
         if let presenter = presenter, let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCollectionViewCell.className, for: indexPath) as? CharacterCollectionViewCell {
                         
             cell.setup(name: presenter.getCharacterName(at: indexPath.row), thumbnailImage: presenter.getCharacterThumbnailImage(at: indexPath.row))
+            
+            return cell
         }
         
         return UICollectionViewCell()
@@ -61,6 +67,8 @@ extension CharactersListViewController: UICollectionViewDelegate {
 
 extension CharactersListViewController: CharactersListPresenterDelegate {
     func reloadData() {
-        charactersListCollectionView.reloadData()
+        DispatchQueue.main.async {
+            self.charactersListCollectionView.reloadData()
+        }
     }
 }
