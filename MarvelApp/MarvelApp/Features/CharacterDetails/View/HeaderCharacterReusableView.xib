@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="xn8-vh-TdP" customClass="HeaderCharacterReusableView" customModule="MarvelApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="348" height="372"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X1N-XM-K6C">
+                    <rect key="frame" x="0.0" y="0.0" width="348" height="223"/>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="av3-Gk-9Ri">
+                    <rect key="frame" x="0.0" y="233" width="348" height="129"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="X1N-XM-K6C" firstAttribute="leading" secondItem="IN9-fC-6dn" secondAttribute="leading" id="DmD-AW-iDa"/>
+                <constraint firstItem="av3-Gk-9Ri" firstAttribute="top" secondItem="X1N-XM-K6C" secondAttribute="bottom" constant="10" id="Jag-ez-UvR"/>
+                <constraint firstItem="IN9-fC-6dn" firstAttribute="trailing" secondItem="av3-Gk-9Ri" secondAttribute="trailing" id="KsM-0o-5Qe"/>
+                <constraint firstItem="IN9-fC-6dn" firstAttribute="bottom" secondItem="av3-Gk-9Ri" secondAttribute="bottom" constant="10" id="TUr-wh-2Nh"/>
+                <constraint firstItem="X1N-XM-K6C" firstAttribute="height" secondItem="xn8-vh-TdP" secondAttribute="height" multiplier="0.6" id="XCG-78-fKo"/>
+                <constraint firstItem="IN9-fC-6dn" firstAttribute="trailing" secondItem="X1N-XM-K6C" secondAttribute="trailing" id="YLb-ne-gu8"/>
+                <constraint firstItem="av3-Gk-9Ri" firstAttribute="leading" secondItem="IN9-fC-6dn" secondAttribute="leading" id="dFv-Qf-8wo"/>
+                <constraint firstItem="X1N-XM-K6C" firstAttribute="top" secondItem="xn8-vh-TdP" secondAttribute="top" id="dgA-Gj-XCG"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="IN9-fC-6dn"/>
+            <connections>
+                <outlet property="descriptionTextView" destination="av3-Gk-9Ri" id="zPl-qP-rh2"/>
+                <outlet property="headerImageView" destination="X1N-XM-K6C" id="UKA-qV-ZQB"/>
+            </connections>
+            <point key="canvasLocation" x="-36.231884057971016" y="86.383928571428569"/>
+        </collectionReusableView>
+    </objects>
+</document>
