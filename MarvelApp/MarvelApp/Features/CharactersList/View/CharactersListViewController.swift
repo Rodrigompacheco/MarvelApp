@@ -24,6 +24,21 @@ class CharactersListViewController: UIViewController {
     
     weak var delegate: CharactersListViewControllerDelegate?
     
+    init(presenter: CharactersListPresenter) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+//    class func instance(presenter: CharactersListPresenter) -> CharactersListViewController {
+//        let viewController = CharactersListViewController()
+//        viewController.presenter = presenter
+//        return viewController
+//    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -36,9 +51,8 @@ class CharactersListViewController: UIViewController {
     }
     
     private func setupPresenter() {
-        presenter = CharactersListPresenter()
         delegate = presenter
-        presenter?.delegate = self
+        presenter?.presenterViewDelegate = self
     }
 }
 
@@ -61,11 +75,11 @@ extension CharactersListViewController: UICollectionViewDataSource {
 
 extension CharactersListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        delegate?.didSelectCell(at: indexPath.row)
     }
 }
 
-extension CharactersListViewController: CharactersListPresenterDelegate {
+extension CharactersListViewController: CharactersListPresenterViewDelegate {
     func reloadData() {
         DispatchQueue.main.async {
             self.charactersListCollectionView.reloadData()

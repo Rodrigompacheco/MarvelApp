@@ -8,29 +8,38 @@
 
 import Foundation
 
-protocol CharactersListPresenterDelegate: class {
+protocol CharactersListPresenterViewDelegate: class {
     func reloadData()
+}
+
+protocol CharactersListPresenterCoordinatorDelegate: class {
+    func didSelectCharacter(character: Character)
 }
 
 class CharactersListPresenter {
     
+    let marvelApiProvider: MarvelApiProvider
     var characters: [Character] = []
     
-    weak var delegate: CharactersListPresenterDelegate?
+    weak var presenterViewDelegate: CharactersListPresenterViewDelegate?
+    weak var presenterCoordinatorDelegate: CharactersListPresenterCoordinatorDelegate?
+
+    init(marvelApiProvider: MarvelApiProvider) {
+        self.marvelApiProvider = marvelApiProvider
+    }
     
     private func loadCharacters(completion: @escaping (Bool) -> Void) {
         let endpoint = MarvelApiEndpoint.characters(offset: 0)
-        let marvelApiProvider = MarvelApiProvider()
         
-        marvelApiProvider.request(for: endpoint) { [weak self] (result: Result<DataPackage<Character>, Error>) in
+        self.marvelApiProvider.request(for: endpoint) { [weak self] (result: Result<DataPackage<Character>, Error>) in
             guard let self = self else { return }
             switch result {
             case .success(let dataPackage):
-                print("sucesso")
+                print("success")
                 self.characters.append(contentsOf: dataPackage.data.results)
                 completion(true)
             case .failure(let error):
-                print("falhou")
+                print("error: \(error)")
                 completion(false)
             }
         }
@@ -58,14 +67,15 @@ class CharactersListPresenter {
 
 extension CharactersListPresenter: CharactersListViewControllerDelegate {
     func didSelectCell(at index: Int) {
-        print(index)
+        let character = characters[index]
+        presenterCoordinatorDelegate?.didSelectCharacter(character: character)
     }
     
     func setupView() {
         DispatchQueue.main.async {
             self.loadCharacters(completion: { result in
                 if result {
-                    self.delegate?.reloadData()
+                    self.presenterViewDelegate?.reloadData()
                 }
             })
         }
