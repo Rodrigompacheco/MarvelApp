@@ -136,13 +136,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		413F561723ECCE93003FEA36 /* HeaderViewCell */ = {
+		413F561723ECCE93003FEA36 /* HeaderView */ = {
 			isa = PBXGroup;
 			children = (
 				41CD154723ECC24200008951 /* HeaderCharacterReusableView.swift */,
 				41CD153F23ECB5AA00008951 /* HeaderCharacterReusableView.xib */,
 			);
-			path = HeaderViewCell;
+			path = HeaderView;
 			sourceTree = "<group>";
 		};
 		41561FB923EB59AF00AAF8E7 = {
@@ -300,7 +300,7 @@
 		41CD151D23EBA68900008951 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				413F561723ECCE93003FEA36 /* HeaderViewCell */,
+				413F561723ECCE93003FEA36 /* HeaderView */,
 				41CD153E23ECAF5E00008951 /* Cell */,
 				41CD153A23ECAB4E00008951 /* CharacterDetailViewController.swift */,
 				41CD153C23ECAEC900008951 /* CharacterDetailViewController.xib */,
