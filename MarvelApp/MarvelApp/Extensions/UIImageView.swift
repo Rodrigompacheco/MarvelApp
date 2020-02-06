@@ -18,6 +18,5 @@ extension UIImageView {
             guard let self = self else { return }
             self.unlock()
         })
-//        kf.setImage(with: url, options: [.transition(.fade(0.2))])
     }
 }
