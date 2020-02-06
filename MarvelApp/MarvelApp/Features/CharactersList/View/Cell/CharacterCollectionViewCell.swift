@@ -13,8 +13,8 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var characterNameLabel: UILabel!
     
-    func setup(name: String, image: UIImage) {
+    func setup(name: String, thumbnailImage: String) {
         characterNameLabel.text = name
-        backgroundImageView.image = image
+        backgroundImageView.load(thumbnailImage: thumbnailImage)
     }
 }
