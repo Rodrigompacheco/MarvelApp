@@ -24,5 +24,13 @@ class CharacterDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let viewC = UIView(frame: self.view.bounds)
+        viewC.backgroundColor = .green
+        
+        let label = UILabel(frame: CGRect(x: 50, y: 50, width: 100, height: 100))
+        label.text = presenter.character.name
+        
+        viewC.addSubview(label)
+        self.view.addSubview(viewC)
     }
 }
