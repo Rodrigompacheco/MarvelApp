@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainCoordinator: Coordinator{
+class MainCoordinator: Coordinator {
 
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
@@ -23,7 +23,6 @@ class MainCoordinator: Coordinator{
         let presenter = CharactersListPresenter(marvelApiProvider: marvelApiProvider)
         presenter.presenterCoordinatorDelegate = self
         let viewController = CharactersListViewController(presenter: presenter)
-//        let viewController = CharactersListViewController.instance(presenter: presenter)
         navigationController.pushViewController(viewController, animated: false)
     }
 }

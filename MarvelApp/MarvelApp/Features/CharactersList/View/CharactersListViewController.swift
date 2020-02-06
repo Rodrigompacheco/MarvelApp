@@ -29,12 +29,6 @@ class CharactersListViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-//    class func instance(presenter: CharactersListPresenter) -> CharactersListViewController {
-//        let viewController = CharactersListViewController()
-//        viewController.presenter = presenter
-//        return viewController
-//    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
