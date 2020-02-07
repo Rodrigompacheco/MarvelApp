@@ -33,7 +33,7 @@ class CharacterDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupCollectionView()
         
         DispatchQueue.main.async {
@@ -41,6 +41,10 @@ class CharacterDetailViewController: UIViewController {
                 self.updateUI(dataState: result)
             })
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     private func updateUI(dataState: DataState) {

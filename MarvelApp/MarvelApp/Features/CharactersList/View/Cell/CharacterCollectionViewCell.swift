@@ -10,15 +10,19 @@ import UIKit
 
 class CharacterCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var backgroundShadowView: UIView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var characterNameLabel: UILabel!
-    
+    let cornerRadius: CGFloat = 15
     
     func setup(name: String, thumbnailImage: String) {
+        
         characterNameLabel.text = name        
         backgroundImageView.load(thumbnailImage: thumbnailImage)
         
-        backgroundImageView.layer.cornerRadius = 15
+        backgroundImageView.layer.cornerRadius = cornerRadius
         backgroundImageView.clipsToBounds = true
+        
+        backgroundShadowView.layer.cornerRadius = cornerRadius
     }
 }

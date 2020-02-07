@@ -18,7 +18,7 @@ class MainCoordinator: Coordinator {
         self.navigationController = navigationController
 //        self.navigationController.setNavigationBarHidden(true, animated: false)
         
-        navigationController.navigationBar.prefersLargeTitles = false
+        navigationController.navigationBar.prefersLargeTitles = true
 //        navigationController.navigationBar.isTranslucent = true
         navigationController.navigationBar.barStyle = .black
         navigationController.navigationBar.barTintColor = UIColor(red: 220/255, green: 55/255, blue: 48/255, alpha: 1.0)

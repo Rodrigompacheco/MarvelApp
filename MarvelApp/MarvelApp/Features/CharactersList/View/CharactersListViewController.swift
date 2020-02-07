@@ -39,7 +39,7 @@ class CharactersListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
         setupCollection()
         setupPresenter()
         presenter.loadCharacters { [weak self] (result) in
@@ -48,6 +48,10 @@ class CharactersListViewController: UIViewController {
                 self.updateUI(dataState: result)
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func setupPresenter() {
