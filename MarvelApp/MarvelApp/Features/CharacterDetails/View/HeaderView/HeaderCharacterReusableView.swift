@@ -17,5 +17,9 @@ class HeaderCharacterReusableView: UICollectionReusableView {
     func setup(thumbnailImage: String, description: String) {
         headerImageView.load(thumbnailImage: thumbnailImage)
         descriptionTextView.text = description
+        
+        if description == withoutDescription {
+            
+        }
     }
 }
