@@ -16,7 +16,12 @@ class MainCoordinator: Coordinator {
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.navigationController.setNavigationBarHidden(true, animated: false)
+//        self.navigationController.setNavigationBarHidden(true, animated: false)
+        
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationBar.isTranslucent = true
+        navigationController.navigationBar.barStyle = .blackTranslucent
+        navigationController.navigationBar.tintColor = .black
     }
     
     func start() {
@@ -29,10 +34,9 @@ class MainCoordinator: Coordinator {
 
 extension MainCoordinator: CharactersListPresenterCoordinatorDelegate {
     func didSelectCharacter(character: Character) {
-//        let presenter = CharacterDetailViewModel(character: character,
-//                                          marvelApiProvider: marvelApiProvider)
-//        let viewController = CharacterDetailViewController(viewModel: viewModel)
-//        navigationController.pushViewController(viewController, animated: true)
-        print("VAI IR PRA DEITAIL VIEW CONTROLLER")
+        let presenter = CharacterDetailPresenter(marvelApiProvider: marvelApiProvider, character: character)
+
+        let viewController = CharacterDetailViewController(presenter: presenter)
+        navigationController.pushViewController(viewController, animated: true)
     }
 }
