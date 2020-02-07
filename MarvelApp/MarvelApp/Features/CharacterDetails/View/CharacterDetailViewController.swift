@@ -119,8 +119,12 @@ extension CharacterDetailViewController: UICollectionViewDataSource {
     }
 }
 
-extension CharacterDetailViewController: UICollectionViewDelegate {
-    
+extension CharacterDetailViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let heightPercentage: CGFloat = 0.77
+
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height * heightPercentage)
+     }
 }
 
 extension CharacterDetailViewController: UIScrollViewDelegate {
