@@ -18,9 +18,9 @@ class CharacterDetailViewController: UIViewController {
         
     let presenter: CharacterDetailPresenter
     let headerIdentifier = "header"
-    let headerType = UICollectionView.elementKindSectionHeader
+    let headerElementKinf = UICollectionView.elementKindSectionHeader
     let footerIdentifier = "footer"
-    let footerType = UICollectionView.elementKindSectionFooter
+    let footerElementKind = UICollectionView.elementKindSectionFooter
     
     init(presenter: CharacterDetailPresenter) {
         self.presenter = presenter
@@ -34,27 +34,39 @@ class CharacterDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       setupCollectionView()
-        
+        setupCollectionView()
         
         DispatchQueue.main.async {
             self.presenter.loadComics(completion: { result in
-                if result {
-                    DispatchQueue.main.async {
-                        self.comicsCollectionView.reloadData()
-                    }
-                }
+                self.updateUI(dataState: result)
             })
+        }
+    }
+    
+    private func updateUI(dataState: DataState) {
+        switch dataState {
+        case .initial:
+            DispatchQueue.main.async {
+                self.comicsCollectionView.reloadData()
+            }
+        case .inserted(let indexPaths):
+            DispatchQueue.main.async {
+                self.comicsCollectionView.insertItems(at: indexPaths)
+            }
+        case .loading:
+            break
+        default:
+            break
         }
     }
     
     private func setupCollectionView() {
         let nib = UINib(nibName: HeaderCharacterReusableView.className, bundle: nil)
         comicsCollectionView.register(nib,
-                                forSupplementaryViewOfKind: headerType,
+                                forSupplementaryViewOfKind: headerElementKinf,
                                 withReuseIdentifier: headerIdentifier)
         comicsCollectionView.register(UICollectionReusableView.self,
-                                forSupplementaryViewOfKind: footerType,
+                                forSupplementaryViewOfKind: footerElementKind,
                                 withReuseIdentifier: footerIdentifier)
         comicsCollectionView.dataSource = self
         comicsCollectionView.delegate = self
@@ -70,7 +82,6 @@ extension CharacterDetailViewController: UICollectionViewDataSource {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComicCollectionViewCell.className, for: indexPath) as? ComicCollectionViewCell {
                         
             cell.setup(thumbnailImage: presenter.getComicThumbnailImage(at: indexPath.row))
-            
             return cell
         }
         
@@ -82,18 +93,18 @@ extension CharacterDetailViewController: UICollectionViewDataSource {
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
-        case headerType:
+        case headerElementKinf:
             guard let supplementaryView = collectionView.dequeueReusableSupplementaryView(
-                ofKind: headerType,
+                ofKind: headerElementKinf,
                 withReuseIdentifier: headerIdentifier,
                 for: indexPath) as? HeaderCharacterReusableView else {
                     return UICollectionReusableView()
             }
             supplementaryView.setup(thumbnailImage: presenter.getCharacterThumbnailImage(), description: presenter.character.description)
             return supplementaryView
-        case footerType:
+        case footerElementKind:
             let supplementaryView = collectionView.dequeueReusableSupplementaryView(
-                ofKind: footerType,
+                ofKind: footerElementKind,
                 withReuseIdentifier: footerIdentifier,
                 for: indexPath
             )
@@ -107,3 +118,21 @@ extension CharacterDetailViewController: UICollectionViewDataSource {
 extension CharacterDetailViewController: UICollectionViewDelegate {
     
 }
+
+extension CharacterDetailViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView.reachedBottom, presenter.hasMoreToDownload() else { return }
+        
+        let indexPath = IndexPath(item: 0, section: 0)
+        let footer = comicsCollectionView.supplementaryView(forElementKind: footerElementKind, at: indexPath)
+        footer?.lock()
+        presenter.loadComics { [weak self, footer] (result) in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                footer?.unlock()
+                self.updateUI(dataState: result)
+            }
+        }
+    }
+}
+

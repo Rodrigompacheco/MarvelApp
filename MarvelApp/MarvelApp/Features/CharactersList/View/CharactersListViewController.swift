@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol CharactersListViewControllerDelegate: ViewControllerDelegate {
+protocol CharactersListViewControllerDelegate: class {
     func didSelectCell(at index: Int)
 }
 
@@ -17,10 +17,14 @@ class CharactersListViewController: UIViewController {
     @IBOutlet weak var charactersListCollectionView: UICollectionView! {
         didSet {
             charactersListCollectionView.register(UINib(nibName: CharacterCollectionViewCell.className, bundle: nil), forCellWithReuseIdentifier: CharacterCollectionViewCell.className)
+            
+            charactersListCollectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: footerElementKind, withReuseIdentifier: footerIdentifier)
         }
     }
 
-    var presenter: CharactersListPresenter?
+    var presenter: CharactersListPresenter
+    let footerIdentifier = "footer"
+    let footerElementKind = UICollectionView.elementKindSectionFooter
     
     weak var delegate: CharactersListViewControllerDelegate?
     
@@ -35,28 +39,52 @@ class CharactersListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        charactersListCollectionView.delegate = self
-        charactersListCollectionView.dataSource = self
-        
+    
+        setupCollection()
         setupPresenter()
-        delegate?.setupView()
+        presenter.loadCharacters { [weak self] (result) in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.updateUI(dataState: result)
+            }
+        }
     }
     
     private func setupPresenter() {
         delegate = presenter
-        presenter?.presenterViewDelegate = self
+        presenter.presenterViewDelegate = self
+    }
+    
+    private func updateUI(dataState: DataState) {
+        switch dataState {
+        case .initial:
+            DispatchQueue.main.async {
+                self.charactersListCollectionView.reloadData()
+            }
+        case .inserted(let indexPaths):
+            DispatchQueue.main.async {
+                self.charactersListCollectionView.insertItems(at: indexPaths)
+            }
+        case .loading:
+            break
+        default:
+            break
+        }
+    }
+    
+    private func setupCollection() {
+        charactersListCollectionView.delegate = self
+        charactersListCollectionView.dataSource = self
     }
 }
 
 extension CharactersListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter?.getCharacters().count ?? 0
+        return presenter.getCharacters().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let presenter = presenter, let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCollectionViewCell.className, for: indexPath) as? CharacterCollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCollectionViewCell.className, for: indexPath) as? CharacterCollectionViewCell {
                         
             cell.setup(name: presenter.getCharacterName(at: indexPath.row), thumbnailImage: presenter.getCharacterThumbnailImage(at: indexPath.row))
             
@@ -64,6 +92,20 @@ extension CharactersListViewController: UICollectionViewDataSource {
         }
         
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case footerElementKind:
+            let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: footerElementKind,
+                                                            withReuseIdentifier: footerIdentifier,
+                                                            for: indexPath)
+            return supplementaryView
+        default:
+            return UICollectionReusableView()
+        }
     }
 }
 
@@ -77,6 +119,23 @@ extension CharactersListViewController: CharactersListPresenterViewDelegate {
     func reloadData() {
         DispatchQueue.main.async {
             self.charactersListCollectionView.reloadData()
+        }
+    }
+}
+
+extension CharactersListViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView.reachedBottom, presenter.hasMoreToDownload() else { return }
+        
+        let indexPath = IndexPath(item: 0, section: 0)
+        let footer = charactersListCollectionView.supplementaryView(forElementKind: footerElementKind, at: indexPath)
+        footer?.lock()
+        presenter.loadCharacters { [weak self, footer] (result) in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                footer?.unlock()
+                self.updateUI(dataState: result)
+            }
         }
     }
 }
