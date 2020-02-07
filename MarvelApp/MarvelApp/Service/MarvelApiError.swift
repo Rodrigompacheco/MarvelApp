@@ -26,6 +26,6 @@ extension MarvelApiError {
     }
     
     static var invalidData: MarvelApiError {
-           return MarvelApiError.custom("Invalid DataL.")
+           return MarvelApiError.custom("Invalid Data.")
     }
 }

@@ -14,6 +14,7 @@
 		41561FD223EB59B100AAF8E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41561FD023EB59B100AAF8E7 /* LaunchScreen.storyboard */; };
 		41561FDD23EB59B100AAF8E7 /* MarvelAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41561FDC23EB59B100AAF8E7 /* MarvelAppTests.swift */; };
 		41561FE823EB59B100AAF8E7 /* MarvelAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41561FE723EB59B100AAF8E7 /* MarvelAppUITests.swift */; };
+		418117E023ED077100629010 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418117DF23ED077100629010 /* UIScrollViewExtension.swift */; };
 		41875643E32406C44D6EA1B9 /* Pods_MarvelAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2234295B28896E5ED03D0960 /* Pods_MarvelAppTests.framework */; };
 		41CD150223EB90BD00008951 /* MarvelApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD150123EB90BD00008951 /* MarvelApiError.swift */; };
 		41CD150423EB91D100008951 /* MarvelApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD150323EB91D100008951 /* MarvelApiEndpoint.swift */; };
@@ -31,7 +32,6 @@
 		41CD152B23EBD2EA00008951 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD152A23EBD2EA00008951 /* NSObjectExtension.swift */; };
 		41CD152D23EBD5B400008951 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD152C23EBD5B400008951 /* UIViewExtension.swift */; };
 		41CD152F23EBD78600008951 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD152E23EBD78600008951 /* UIImageView.swift */; };
-		41CD153223EBDC1900008951 /* ViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD153123EBDC1900008951 /* ViewControllerDelegate.swift */; };
 		41CD153523EC8AED00008951 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD153423EC8AED00008951 /* Coordinator.swift */; };
 		41CD153723EC8AFD00008951 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD153623EC8AFD00008951 /* MainCoordinator.swift */; };
 		41CD153923ECAA1D00008951 /* CharacterDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD153823ECAA1D00008951 /* CharacterDetailPresenter.swift */; };
@@ -77,6 +77,7 @@
 		41561FE323EB59B100AAF8E7 /* MarvelAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41561FE723EB59B100AAF8E7 /* MarvelAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAppUITests.swift; sourceTree = "<group>"; };
 		41561FE923EB59B100AAF8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		418117DF23ED077100629010 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
 		41CD150123EB90BD00008951 /* MarvelApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelApiError.swift; sourceTree = "<group>"; };
 		41CD150323EB91D100008951 /* MarvelApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelApiEndpoint.swift; sourceTree = "<group>"; };
 		41CD150523EB92E000008951 /* MarvelApiConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelApiConfig.swift; sourceTree = "<group>"; };
@@ -93,7 +94,6 @@
 		41CD152A23EBD2EA00008951 /* NSObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		41CD152C23EBD5B400008951 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		41CD152E23EBD78600008951 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		41CD153123EBDC1900008951 /* ViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegate.swift; sourceTree = "<group>"; };
 		41CD153423EC8AED00008951 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		41CD153623EC8AFD00008951 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		41CD153823ECAA1D00008951 /* CharacterDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPresenter.swift; sourceTree = "<group>"; };
@@ -245,6 +245,7 @@
 				41CD152A23EBD2EA00008951 /* NSObjectExtension.swift */,
 				41CD152C23EBD5B400008951 /* UIViewExtension.swift */,
 				41CD152E23EBD78600008951 /* UIImageView.swift */,
+				418117DF23ED077100629010 /* UIScrollViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -252,7 +253,6 @@
 		41CD150C23EB9DE400008951 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				41CD153023EBDBF700008951 /* Protocols */,
 				41CD150D23EB9DFD00008951 /* DataPackage.swift */,
 				41CD151123EB9F8A00008951 /* Character.swift */,
 				41CD151323EBA06400008951 /* Comic.swift */,
@@ -323,14 +323,6 @@
 				41CD152623EBC2D100008951 /* CharacterCollectionViewCell.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		41CD153023EBDBF700008951 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				41CD153123EBDC1900008951 /* ViewControllerDelegate.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		41CD153323EC8ACA00008951 /* Coordinator */ = {
@@ -583,6 +575,7 @@
 				41CD152923EBC43F00008951 /* CharactersListPresenter.swift in Sources */,
 				41CD153523EC8AED00008951 /* Coordinator.swift in Sources */,
 				41CD153923ECAA1D00008951 /* CharacterDetailPresenter.swift in Sources */,
+				418117E023ED077100629010 /* UIScrollViewExtension.swift in Sources */,
 				41CD152D23EBD5B400008951 /* UIViewExtension.swift in Sources */,
 				41561FCA23EB59AF00AAF8E7 /* CharactersListViewController.swift in Sources */,
 				41CD153B23ECAB4F00008951 /* CharacterDetailViewController.swift in Sources */,
@@ -596,7 +589,6 @@
 				41CD150E23EB9DFD00008951 /* DataPackage.swift in Sources */,
 				41CD152F23EBD78600008951 /* UIImageView.swift in Sources */,
 				41561FC823EB59AF00AAF8E7 /* SceneDelegate.swift in Sources */,
-				41CD153223EBDC1900008951 /* ViewControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
