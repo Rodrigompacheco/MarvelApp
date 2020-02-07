@@ -248,12 +248,12 @@
 		41561FF923EB8EC600AAF8E7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				41CD150723EB977600008951 /* String+md5.swift */,
 				41CD152A23EBD2EA00008951 /* NSObjectExtension.swift */,
+				41CD150723EB977600008951 /* String+md5.swift */,
+				418117E323EDD94C00629010 /* StringExtension.swift */,
 				41CD152C23EBD5B400008951 /* UIViewExtension.swift */,
 				41CD152E23EBD78600008951 /* UIImageView.swift */,
 				418117DF23ED077100629010 /* UIScrollViewExtension.swift */,
-				418117E323EDD94C00629010 /* StringExtension.swift */,
 				418117E523EDE44300629010 /* UICollectionView.swift */,
 			);
 			path = Extensions;
