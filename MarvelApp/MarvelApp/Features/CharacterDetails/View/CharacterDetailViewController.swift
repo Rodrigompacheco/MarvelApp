@@ -123,9 +123,15 @@ extension CharacterDetailViewController: UICollectionViewDataSource {
 
 extension CharacterDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let heightPercentage: CGFloat = 0.77
+        let collectionViewSize = collectionView.frame.size
 
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height * heightPercentage)
+        let width = collectionViewSize.width * 0.8
+        let font = UIFont.systemFont(ofSize: 19)
+        let deafultHeight: CGFloat = originalHeaderHeight * 1.2
+        
+        let calculedHeight = presenter.character.description.height(withConstrainedWidth: width, font: font)
+        
+        return CGSize(width: width, height: deafultHeight + calculedHeight)
      }
 }
 

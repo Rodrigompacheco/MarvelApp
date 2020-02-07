@@ -15,6 +15,7 @@
 		41561FDD23EB59B100AAF8E7 /* MarvelAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41561FDC23EB59B100AAF8E7 /* MarvelAppTests.swift */; };
 		41561FE823EB59B100AAF8E7 /* MarvelAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41561FE723EB59B100AAF8E7 /* MarvelAppUITests.swift */; };
 		418117E023ED077100629010 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418117DF23ED077100629010 /* UIScrollViewExtension.swift */; };
+		418117E423EDD94C00629010 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418117E323EDD94C00629010 /* StringExtension.swift */; };
 		41875643E32406C44D6EA1B9 /* Pods_MarvelAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2234295B28896E5ED03D0960 /* Pods_MarvelAppTests.framework */; };
 		41CD150223EB90BD00008951 /* MarvelApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD150123EB90BD00008951 /* MarvelApiError.swift */; };
 		41CD150423EB91D100008951 /* MarvelApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD150323EB91D100008951 /* MarvelApiEndpoint.swift */; };
@@ -78,6 +79,7 @@
 		41561FE723EB59B100AAF8E7 /* MarvelAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAppUITests.swift; sourceTree = "<group>"; };
 		41561FE923EB59B100AAF8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		418117DF23ED077100629010 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
+		418117E323EDD94C00629010 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		41CD150123EB90BD00008951 /* MarvelApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelApiError.swift; sourceTree = "<group>"; };
 		41CD150323EB91D100008951 /* MarvelApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelApiEndpoint.swift; sourceTree = "<group>"; };
 		41CD150523EB92E000008951 /* MarvelApiConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelApiConfig.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				41CD152C23EBD5B400008951 /* UIViewExtension.swift */,
 				41CD152E23EBD78600008951 /* UIImageView.swift */,
 				418117DF23ED077100629010 /* UIScrollViewExtension.swift */,
+				418117E323EDD94C00629010 /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				41CD151823EBA20900008951 /* ThumbImage.swift in Sources */,
 				41CD151223EB9F8A00008951 /* Character.swift in Sources */,
 				41CD153723EC8AFD00008951 /* MainCoordinator.swift in Sources */,
+				418117E423EDD94C00629010 /* StringExtension.swift in Sources */,
 				41CD152923EBC43F00008951 /* CharactersListPresenter.swift in Sources */,
 				41CD153523EC8AED00008951 /* Coordinator.swift in Sources */,
 				41CD153923ECAA1D00008951 /* CharacterDetailPresenter.swift in Sources */,
