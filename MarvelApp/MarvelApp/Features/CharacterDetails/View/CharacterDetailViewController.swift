@@ -22,6 +22,7 @@ class CharacterDetailViewController: UIViewController {
     let footerIdentifier = "footer"
     let footerElementKind = UICollectionView.elementKindSectionFooter
     var originalHeaderHeight: CGFloat = 0
+    var headerHeight: CGFloat = 0
     
     init(presenter: CharacterDetailPresenter) {
         self.presenter = presenter
@@ -130,9 +131,15 @@ extension CharacterDetailViewController: UICollectionViewDelegateFlowLayout {
         let deafultHeight: CGFloat = originalHeaderHeight * 1.2
         
         let calculedHeight = presenter.character.description.height(withConstrainedWidth: width, font: font)
-        
+        headerHeight = deafultHeight + calculedHeight
         return CGSize(width: width, height: deafultHeight + calculedHeight)
      }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return collectionView.sizeForCards
+    }
 }
 
 extension CharacterDetailViewController: UIScrollViewDelegate {
@@ -143,8 +150,11 @@ extension CharacterDetailViewController: UIScrollViewDelegate {
             let offset = scrollView.contentOffset.y
             if offset < 0 {
                 reusableView.headerHeightConstraint.constant = originalHeaderHeight - offset
+                reusableView.frame.size.height = headerHeight - offset
+
             } else {
                 reusableView.headerHeightConstraint.constant = originalHeaderHeight
+                reusableView.frame.size.height = headerHeight
             }
         }
         

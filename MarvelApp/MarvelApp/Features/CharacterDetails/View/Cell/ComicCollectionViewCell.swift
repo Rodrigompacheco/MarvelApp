@@ -12,7 +12,11 @@ class ComicCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var comicImageView: UIImageView!
     
+    let cornerRadius: CGFloat = 10
+    
     func setup(thumbnailImage: String) {
+        comicImageView.layer.cornerRadius = cornerRadius
+//        comicImageView.clipsToBounds = true
         comicImageView.load(thumbnailImage: thumbnailImage)
     }
 }
