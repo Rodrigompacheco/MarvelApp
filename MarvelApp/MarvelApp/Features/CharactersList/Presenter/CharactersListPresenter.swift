@@ -78,7 +78,10 @@ class CharactersListPresenter {
 
 extension CharactersListPresenter: CharactersListViewControllerDelegate {
     func didSelectCell(at index: Int) {
-        let character = characters[index]
+        var character = characters[index]
+        if character.description.isEmpty {
+            character.description = withoutDescription
+        }
         presenterCoordinatorDelegate?.didSelectCharacter(character: character)
     }
 }

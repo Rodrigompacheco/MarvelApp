@@ -131,13 +131,7 @@ extension CharactersListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let padding: CGFloat =  30
-        let collectionViewSize = collectionView.frame.size.width - padding
-        let percentageOfWidth: CGFloat = 0.50
-        let percentageOfHeight: CGFloat = 0.35
-        
-        return CGSize(width: collectionViewSize * percentageOfWidth,
-                      height: collectionView.frame.height * percentageOfHeight)
+        return collectionView.sizeForCards
     }
 }
 

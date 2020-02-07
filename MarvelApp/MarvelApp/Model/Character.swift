@@ -8,10 +8,12 @@
 
 import Foundation
 
+let withoutDescription = "Without description."
+
 struct Character: Codable {
     let id: Int
     let name: String
-    let description: String
+    var description: String
     let thumbnail: ThumbImage?
     
     enum CodingKeys: String, CodingKey {

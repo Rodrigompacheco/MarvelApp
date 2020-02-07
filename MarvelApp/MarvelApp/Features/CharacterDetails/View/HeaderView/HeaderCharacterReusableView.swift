@@ -11,10 +11,11 @@ import UIKit
 class HeaderCharacterReusableView: UICollectionReusableView {
         
     @IBOutlet weak var headerImageView: UIImageView!
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
     
     func setup(thumbnailImage: String, description: String) {
         headerImageView.load(thumbnailImage: thumbnailImage)
-        descriptionTextView.text = description
+        descriptionLabel.text = description
     }
 }

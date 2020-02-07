@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +30,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
             </subviews>
-            <color key="backgroundColor" red="0.25098039215686274" green="0.24705882352941178" blue="0.30196078431372547" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" name="gray_background_marvel"/>
             <constraints>
                 <constraint firstItem="OEN-70-k9z" firstAttribute="top" secondItem="yrh-kM-d6S" secondAttribute="top" id="C2O-tB-g0d"/>
                 <constraint firstItem="OEN-70-k9z" firstAttribute="leading" secondItem="yrh-kM-d6S" secondAttribute="leading" id="CPp-kV-fOQ"/>
@@ -40,4 +41,9 @@
             <point key="canvasLocation" x="-61" y="743"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="gray_background_marvel">
+            <color red="0.25098039215686274" green="0.24705882352941178" blue="0.30196078431372547" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
