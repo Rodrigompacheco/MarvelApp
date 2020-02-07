@@ -70,6 +70,10 @@ class CharactersListPresenter {
     func hasMoreToDownload() -> Bool {
         return pagination.hasMore
     }
+    
+    func isLoading() -> Bool {
+        return pagination.isLoading
+    }
 }
 
 extension CharactersListPresenter: CharactersListViewControllerDelegate {

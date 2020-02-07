@@ -13,8 +13,12 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var characterNameLabel: UILabel!
     
+    
     func setup(name: String, thumbnailImage: String) {
         characterNameLabel.text = name        
         backgroundImageView.load(thumbnailImage: thumbnailImage)
+        
+        backgroundImageView.layer.cornerRadius = 15
+        backgroundImageView.clipsToBounds = true
     }
 }

@@ -10,6 +10,9 @@ import UIKit
 
 extension UIScrollView {
     var reachedBottom: Bool {
-        return self.contentOffset.y == (self.contentSize.height - self.frame.size.height) ? true : false
+        let visibleHeight = frame.height - contentInset.top - contentInset.bottom
+        let yPoint = contentOffset.y + contentInset.top
+        let threshold = max(0.0, contentSize.height - visibleHeight)
+        return yPoint > threshold
     }
 }

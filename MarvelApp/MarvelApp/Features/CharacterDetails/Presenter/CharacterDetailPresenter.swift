@@ -54,4 +54,8 @@ class CharacterDetailPresenter {
     func hasMoreToDownload() -> Bool {
         return pagination.hasMore
     }
+    
+    func isLoading() -> Bool {
+        return pagination.isLoading
+    }
 }
