@@ -33,7 +33,7 @@ class CharacterDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupCollectionView()
         
         DispatchQueue.main.async {
@@ -41,6 +41,10 @@ class CharacterDetailViewController: UIViewController {
                 self.updateUI(dataState: result)
             })
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     private func updateUI(dataState: DataState) {
@@ -121,7 +125,7 @@ extension CharacterDetailViewController: UICollectionViewDelegate {
 
 extension CharacterDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard scrollView.reachedBottom, presenter.hasMoreToDownload() else { return }
+         guard scrollView.reachedBottom && !presenter.isLoading() && presenter.hasMoreToDownload() else { return }
         
         let indexPath = IndexPath(item: 0, section: 0)
         let footer = comicsCollectionView.supplementaryView(forElementKind: footerElementKind, at: indexPath)

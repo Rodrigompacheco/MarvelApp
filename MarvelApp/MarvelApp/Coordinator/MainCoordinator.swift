@@ -19,15 +19,17 @@ class MainCoordinator: Coordinator {
 //        self.navigationController.setNavigationBarHidden(true, animated: false)
         
         navigationController.navigationBar.prefersLargeTitles = true
-        navigationController.navigationBar.isTranslucent = true
-        navigationController.navigationBar.barStyle = .blackTranslucent
-        navigationController.navigationBar.tintColor = .black
+//        navigationController.navigationBar.isTranslucent = true
+        navigationController.navigationBar.barStyle = .black
+        navigationController.navigationBar.barTintColor = UIColor(red: 220/255, green: 55/255, blue: 48/255, alpha: 1.0)
+        navigationController.navigationBar.tintColor = .white
     }
     
     func start() {
         let presenter = CharactersListPresenter(marvelApiProvider: marvelApiProvider)
         presenter.presenterCoordinatorDelegate = self
         let viewController = CharactersListViewController(presenter: presenter)
+        viewController.title = "Characters"
         navigationController.pushViewController(viewController, animated: false)
     }
 }
@@ -37,6 +39,7 @@ extension MainCoordinator: CharactersListPresenterCoordinatorDelegate {
         let presenter = CharacterDetailPresenter(marvelApiProvider: marvelApiProvider, character: character)
 
         let viewController = CharacterDetailViewController(presenter: presenter)
+        viewController.title = character.name
         navigationController.pushViewController(viewController, animated: true)
     }
 }

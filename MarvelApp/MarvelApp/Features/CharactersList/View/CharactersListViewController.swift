@@ -39,7 +39,7 @@ class CharactersListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
         setupCollection()
         setupPresenter()
         presenter.loadCharacters { [weak self] (result) in
@@ -48,6 +48,10 @@ class CharactersListViewController: UIViewController {
                 self.updateUI(dataState: result)
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func setupPresenter() {
@@ -123,9 +127,23 @@ extension CharactersListViewController: CharactersListPresenterViewDelegate {
     }
 }
 
+extension CharactersListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let padding: CGFloat =  30
+        let collectionViewSize = collectionView.frame.size.width - padding
+        let percentageOfWidth: CGFloat = 0.50
+        let percentageOfHeight: CGFloat = 0.35
+        
+        return CGSize(width: collectionViewSize * percentageOfWidth,
+                      height: collectionView.frame.height * percentageOfHeight)
+    }
+}
+
 extension CharactersListViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard scrollView.reachedBottom, presenter.hasMoreToDownload() else { return }
+        guard scrollView.reachedBottom && !presenter.isLoading() && presenter.hasMoreToDownload() else { return }
         
         let indexPath = IndexPath(item: 0, section: 0)
         let footer = charactersListCollectionView.supplementaryView(forElementKind: footerElementKind, at: indexPath)
