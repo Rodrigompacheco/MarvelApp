@@ -14,10 +14,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X1N-XM-K6C">
-                    <rect key="frame" x="0.0" y="0.0" width="348" height="279.5"/>
+                    <rect key="frame" x="0.0" y="0.0" width="348" height="258"/>
                 </imageView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="av3-Gk-9Ri">
-                    <rect key="frame" x="5" y="289.5" width="338" height="130.5"/>
+                    <rect key="frame" x="5" y="268" width="338" height="152"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -30,14 +30,15 @@
                 <constraint firstItem="av3-Gk-9Ri" firstAttribute="top" secondItem="X1N-XM-K6C" secondAttribute="bottom" constant="10" id="Jag-ez-UvR"/>
                 <constraint firstItem="IN9-fC-6dn" firstAttribute="trailing" secondItem="av3-Gk-9Ri" secondAttribute="trailing" constant="5" id="KsM-0o-5Qe"/>
                 <constraint firstItem="IN9-fC-6dn" firstAttribute="bottom" secondItem="av3-Gk-9Ri" secondAttribute="bottom" constant="10" id="TUr-wh-2Nh"/>
-                <constraint firstItem="X1N-XM-K6C" firstAttribute="height" secondItem="xn8-vh-TdP" secondAttribute="height" multiplier="0.65" id="XCG-78-fKo"/>
                 <constraint firstItem="IN9-fC-6dn" firstAttribute="trailing" secondItem="X1N-XM-K6C" secondAttribute="trailing" id="YLb-ne-gu8"/>
                 <constraint firstItem="av3-Gk-9Ri" firstAttribute="leading" secondItem="IN9-fC-6dn" secondAttribute="leading" constant="5" id="dFv-Qf-8wo"/>
                 <constraint firstItem="X1N-XM-K6C" firstAttribute="top" secondItem="xn8-vh-TdP" secondAttribute="top" id="dgA-Gj-XCG"/>
+                <constraint firstItem="X1N-XM-K6C" firstAttribute="height" secondItem="xn8-vh-TdP" secondAttribute="height" multiplier="0.6" id="gfy-c2-PJB"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="IN9-fC-6dn"/>
             <connections>
                 <outlet property="descriptionTextView" destination="av3-Gk-9Ri" id="zPl-qP-rh2"/>
+                <outlet property="headerHeightConstraint" destination="gfy-c2-PJB" id="zs6-hr-um6"/>
                 <outlet property="headerImageView" destination="X1N-XM-K6C" id="UKA-qV-ZQB"/>
             </connections>
             <point key="canvasLocation" x="-36.231884057971016" y="105.80357142857143"/>

@@ -18,9 +18,10 @@ class CharacterDetailViewController: UIViewController {
         
     let presenter: CharacterDetailPresenter
     let headerIdentifier = "header"
-    let headerElementKinf = UICollectionView.elementKindSectionHeader
+    let headerElementKind = UICollectionView.elementKindSectionHeader
     let footerIdentifier = "footer"
     let footerElementKind = UICollectionView.elementKindSectionFooter
+    var originalHeaderHeight: CGFloat = 0
     
     init(presenter: CharacterDetailPresenter) {
         self.presenter = presenter
@@ -67,7 +68,7 @@ class CharacterDetailViewController: UIViewController {
     private func setupCollectionView() {
         let nib = UINib(nibName: HeaderCharacterReusableView.className, bundle: nil)
         comicsCollectionView.register(nib,
-                                forSupplementaryViewOfKind: headerElementKinf,
+                                forSupplementaryViewOfKind: headerElementKind,
                                 withReuseIdentifier: headerIdentifier)
         comicsCollectionView.register(UICollectionReusableView.self,
                                 forSupplementaryViewOfKind: footerElementKind,
@@ -97,14 +98,15 @@ extension CharacterDetailViewController: UICollectionViewDataSource {
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
-        case headerElementKinf:
+        case headerElementKind:
             guard let supplementaryView = collectionView.dequeueReusableSupplementaryView(
-                ofKind: headerElementKinf,
+                ofKind: headerElementKind,
                 withReuseIdentifier: headerIdentifier,
                 for: indexPath) as? HeaderCharacterReusableView else {
                     return UICollectionReusableView()
             }
             supplementaryView.setup(thumbnailImage: presenter.getCharacterThumbnailImage(), description: presenter.character.description)
+            originalHeaderHeight = supplementaryView.headerHeightConstraint.constant
             return supplementaryView
         case footerElementKind:
             let supplementaryView = collectionView.dequeueReusableSupplementaryView(
@@ -129,9 +131,20 @@ extension CharacterDetailViewController: UICollectionViewDelegateFlowLayout {
 
 extension CharacterDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-         guard scrollView.reachedBottom && !presenter.isLoading() && presenter.hasMoreToDownload() else { return }
-        
         let indexPath = IndexPath(item: 0, section: 0)
+        
+        if let reusableView = comicsCollectionView.supplementaryView(forElementKind: headerElementKind, at: indexPath) as? HeaderCharacterReusableView {
+            let offset = scrollView.contentOffset.y
+            if offset < 0 {
+                reusableView.headerHeightConstraint.constant = originalHeaderHeight - offset
+            } else {
+                reusableView.headerHeightConstraint.constant = originalHeaderHeight
+            }
+        }
+        
+        guard scrollView.reachedBottom && !presenter.isLoading() && presenter.hasMoreToDownload() else { return }
+        
+        
         let footer = comicsCollectionView.supplementaryView(forElementKind: footerElementKind, at: indexPath)
         footer?.lock()
         presenter.loadComics { [weak self, footer] (result) in
@@ -141,6 +154,8 @@ extension CharacterDetailViewController: UIScrollViewDelegate {
                 self.updateUI(dataState: result)
             }
         }
+        
+        
     }
 }
 
