@@ -15,7 +15,7 @@ This app is using `MVP` with  `Coordinators`.
 
 ## Features
 
-* **No Storyboard:** Views develop using view XIBs.
+* **No Storyboard:** Views was developed using view XIBs.
 * **Unit Tests:** code coverage: ~35,6%
 * **UITests:** code coverage: ~85,8%
 
