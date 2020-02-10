@@ -1,7 +1,7 @@
 # MarvelApp
 The main idea is to develop an application that consult Marvel's public API (https://developer.marvel.com/), listing the characters on an infinitely scrolling screen and presenting the details of the character on an auxiliary screen with their due participation in Comics (information available in the API).
 
-### Screenshots
+## Screenshots
 `![Artboard](Assets/Artboard.png)`
 
 ## Requirements
@@ -22,13 +22,8 @@ This app is using `MVP` with  `Coordinators`.
 ## Third-party libraries
 I'm using CocoaPods, that is a dependency manager for Swift and Objective-C Cocoa projects
 
-<details>
-  <summary>Click to expand!</summary>
-  
-#### pod 'Kingfisher'
+#### * pod 'Kingfisher'
 Used to download and cache images.
-
-</details>
   
 ## How to install
 
@@ -38,7 +33,7 @@ Used to download and cache images.
 pod install
 ```
 
-### Next Steps  
+## Next Steps  
 - [ ] Add EarlGrey - native iOS UI automation test framework that enables you to write clear, concise tests
 - [ ] Add Circle CI to automate the development process. 
 - [ ] Add iOSSnapshotTestCase to avoid regression.
