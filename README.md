@@ -22,7 +22,7 @@ This app is using `MVP` with  `Coordinators`.
 ## Third-party libraries
 I'm using CocoaPods, that is a dependency manager for Swift and Objective-C Cocoa projects
 
-#### * pod 'Kingfisher'
+#### - pod 'Kingfisher'
 Used to download and cache images.
   
 ## How to install
