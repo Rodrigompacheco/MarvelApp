@@ -11,10 +11,7 @@ The main idea is to develop an application that consult Marvel's public API (htt
 
 ## Architecture
 
-This app is using `MVP`, with  `Coordinators` on navigate between screens.
-
-### Coordinators
-An iOS navigation coordinator written in Swift 5
+This app is using `MVP` with  `Coordinators`.
 
 ## Features
 
