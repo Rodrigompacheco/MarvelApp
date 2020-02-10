@@ -2,7 +2,7 @@
 The main idea is to develop an application that consult Marvel's public API (https://developer.marvel.com/), listing the characters on an infinitely scrolling screen and presenting the details of the character on an auxiliary screen with their due participation in Comics (information available in the API).
 
 ## Screenshots
-`![Artboard](Assets/Artboard.png)`
+![alt text](https://github.com/Rodrigompacheco/MarvelApp/blob/master/Screenshots/1.png "List of Characters 1") ![alt text](https://github.com/Rodrigompacheco/MarvelApp/blob/master/Screenshots/2.png "List of Characters 2") ![alt text](https://github.com/Rodrigompacheco/MarvelApp/blob/master/Screenshots/3.png "Detail of Character 1") ![alt text](https://github.com/Rodrigompacheco/MarvelApp/blob/master/Screenshots/4.png "Detail of Character 2")
 
 ## Requirements
 
