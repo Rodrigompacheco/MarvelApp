@@ -26,4 +26,16 @@ struct ThumbImage: Codable {
         path = try values.decode(String.self, forKey: .path)
         imageExtension = try values.decode(String.self, forKey: .imageExtension)
     }
+    
+    init(path: String, imageExtension: String) {
+        self.path = path
+        self.imageExtension = imageExtension
+    }
+}
+
+extension ThumbImage: Equatable {
+    static func ==(lhs: ThumbImage, rhs: ThumbImage) -> Bool {
+        let areEqual = lhs.path == rhs.path && lhs.imageExtension == rhs.imageExtension
+        return areEqual
+    }
 }

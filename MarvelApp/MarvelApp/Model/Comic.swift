@@ -22,4 +22,16 @@ struct Comic: Codable {
         id = try values.decode(Int.self, forKey: .id)
         thumbnail = try values.decode(Optional<ThumbImage>.self, forKey: .thumbnail)
     }
+    
+    init(id: Int, thumbnail: ThumbImage) {
+        self.id = id
+        self.thumbnail = thumbnail
+    }
+}
+
+extension Comic: Equatable {
+    static func ==(lhs: Comic, rhs: Comic) -> Bool {
+        let areEqual = lhs.id == rhs.id && lhs.thumbnail == rhs.thumbnail
+        return areEqual
+    }
 }

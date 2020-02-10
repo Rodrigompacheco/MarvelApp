@@ -30,4 +30,20 @@ struct Character: Codable {
         description = try values.decode(String.self, forKey: .description)
         thumbnail = try values.decode(Optional<ThumbImage>.self, forKey: .thumbnail)
     }
+    
+    init(id: Int, name: String, description: String, thumbnail: ThumbImage) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.thumbnail = thumbnail
+    }
 }
+
+extension Character: Equatable {
+    static func ==(lhs: Character, rhs: Character) -> Bool {
+        let areEqual = lhs.id == rhs.id && lhs.name == rhs.name && lhs.description == rhs.description && lhs.thumbnail == rhs.thumbnail
+        return areEqual
+    }
+}
+
+

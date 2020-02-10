@@ -7,30 +7,71 @@
 //
 
 import XCTest
+import MarvelApp
 
 class MarvelAppUITests: XCTestCase {
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // UI tests must launch the application that they test.
+    func testSamplingOfElements() {
         let app = XCUIApplication()
         app.launch()
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let collectionViewsQuery = XCUIApplication().collectionViews
+        let cellsQuery = collectionViewsQuery.cells
+
+        cellsQuery.otherElements.containing(.staticText, identifier:"A.I.M.").children(matching: .other).element.swipeUp()
+  
+        cellsQuery.otherElements.containing(.staticText, identifier:"Adam Destine").children(matching: .other).element.swipeUp()
+        cellsQuery.otherElements.containing(.staticText, identifier:"Agent Zero").children(matching: .other).element.swipeUp()
+        cellsQuery.otherElements.containing(.staticText, identifier:"Ajak").children(matching: .other).element.swipeUp()
+                
+        cellsQuery.otherElements.containing(.staticText, identifier:"Ajak").children(matching: .other).element.swipeUp()
+        
+        let predicate = NSPredicate(format: "exists == 1")
+        let object = app.staticTexts["Alex Power"]
+        expectation(for: predicate, evaluatedWith: object, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
     }
+    
+    func testFirsCharacterDescription() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        let collectionViewsQuery = XCUIApplication().collectionViews
+        let cellsQuery = collectionViewsQuery.cells
+        
+        cellsQuery.otherElements.containing(.staticText, identifier:"A.I.M.").children(matching: .other).element.tap()
+        
+        collectionViewsQuery.staticTexts["AIM is a terrorist organization bent on destroying the world."].tap()
+    }
+    
+    func testFirsCharacterComics() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        let collectionViewsQuery = XCUIApplication().collectionViews
+        let cellsQuery = collectionViewsQuery.cells
+        
+        cellsQuery.otherElements.containing(.staticText, identifier:"A.I.M.").children(matching: .other).element.tap()
+        
+        collectionViewsQuery.staticTexts["AIM is a terrorist organization bent on destroying the world."].tap()
+                
+        collectionViewsQuery.children(matching: .cell).element(boundBy: 0).children(matching: .other).element.swipeUp()
+        
+        let element = collectionViewsQuery.children(matching: .cell).element(boundBy: 4).children(matching: .other).element
+        element.swipeUp()
+        element.swipeUp()
+        element.swipeUp()
+        collectionViewsQuery.children(matching: .cell).element(boundBy: 7).children(matching: .other).element.swipeUp()
+    }
+    
 
     func testLaunchPerformance() {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
